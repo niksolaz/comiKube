@@ -27,7 +27,7 @@ Documento di decisione: (1) valutazione critica del piano proposto, (2) decision
 
 ## 1. Valutazione del piano proposto
 
-### 1.1 Solidità della scelta del Monorepo (Nuxt 3 + Vue 3 + Pinia / Node)
+### 1.1 Solidità della scelta del Monorepo (Nuxt 4 + Vue 3 + Pinia / Node)
 
 **Verdetto: scelta solida e consigliata per questo stack specifico.** Il monorepo è la decisione giusta, a patto di imporre disciplina sui confini.
 
@@ -46,11 +46,13 @@ Insidie da presidiare:
 **Struttura proposta:**
 ```
 comiKube/
-  apps/web/          # Nuxt 3
+  apps/web/          # Nuxt 4 (Vue 3)
   apps/api/          # Node (NestJS: DI + moduli scalano meglio di Express puro)
   packages/shared/   # types, zod schemas, costanti (enum ruoli, limiti crediti, stati progetto)
   packages/ui/       # (opzionale) componenti Vue condivisi
 ```
+
+> **Decisione (2026-10-21):** adottato **Nuxt 4** (ultimo stabile, resta su Vue 3) al posto di Nuxt 3; `@comikube/shared` è compilato a **CommonJS** (`dist/`) e consumato sia da `web` che da `api`. Dettagli esecutivi in `DOCS/REPO_SETUP.md`.
 
 ### 1.2 Pagamenti — perimetro chiarito e posticipato
 
